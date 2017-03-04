@@ -1,5 +1,5 @@
 <li class="email-item row">
-              <div class="people col-sm-3">
+              <div class="people col-sm-1">
                 <ul class="mail-icons list-inline">
                   <li>
                     <input type="checkbox" class="mail-select">
@@ -7,15 +7,16 @@
                   <li>
                     <input type="button" value="Del" ng-click="$ctrl.deleteLine({eml: $ctrl.email});">
                   </li>
-                </ul>
-
-                <span class="people-names">
-                  {{$ctrl.email.userobj.name}}
-                </span>
+                </ul>               
               </div>
-              <div class="message col-sm-7">
+              <div class="people col-sm-2" ui-sref="home.box.mail({emailId:$ctrl.email.id })" style="cursor:pointer;">  
+                <span class="people-names" >
+                  {{$ctrl.email.userobj.name}}
+                </span>              
+              </div>
+              <div class="message col-sm-7"  ui-sref="home.box.mail({emailId:$ctrl.email.id })" style="cursor:pointer;">
                 <div class="clipper">
-                  <h3 ui-sref="home.box.mail({emailId:$ctrl.email.id })" ui-sref-active="active" style="cursor:pointer;"><b>{{$ctrl.email.subject}}</b></h3>
+                  <h3><b>{{$ctrl.email.subject}}</b></h3>
                   -
                   <p>{{$ctrl.email.body}}</p>
                 </div>

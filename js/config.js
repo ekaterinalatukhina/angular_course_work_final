@@ -146,7 +146,8 @@ $stateProvider.state({
             usersList.push(userobject);            
         }       
         
-        var obj = {"id": emailList.length,
+        var new_id = parseInt(emailList[ emailList.length-1 ]['id']) + 1;
+        var obj = {"id": new_id,
                   "created": new Date(), 
                   "userobj":userobject,
                   "from": uTo, 

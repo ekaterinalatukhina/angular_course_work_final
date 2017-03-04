@@ -39,13 +39,15 @@
   app.component('addrLine', {
     template: ` 
             <li class="email-item row">
-              <div class="people col-sm-3">
+              <div class="people col-sm-1">
                 <input type="button" value="Del" ng-click="$ctrl.deleteAddr({id:$ctrl.user.id });">
-                <span class="people-names" ui-sref="home.addressbook.edit({addressId:$ctrl.user.id })" style="cursor:pointer;">
+              </div>
+              <div class="people col-sm-2" ui-sref="home.addressbook.edit({addressId:$ctrl.user.id })" style="cursor:pointer;">
+                <span class="people-names">
                    <b>{{$ctrl.user.name}}</b>
                 </span>
               </div>
-              <div class="message col-sm-7">
+              <div class="message col-sm-7" ui-sref="home.addressbook.edit({addressId:$ctrl.user.id })" style="cursor:pointer;">
                 <div class="clipper">
                   {{$ctrl.user.email}}                  
                 </div>
