@@ -1,0 +1,75 @@
+     <div class="container-fluid">
+      <header class="row">
+        <div class="logo col-sm-2">
+          <img src="http://s1.iconbird.com/ico/2013/7/393/w128h1281373800306despicableme2Minionicon5.png" alt="logo" width="75">
+        </div><!-- logo -->
+
+        <div class="search-bar col-sm-6">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for..." ng-model="$ctrl.searchWord">
+            <span class="input-group-btn">
+              <button class="btn btn-main">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>
+            </span>
+          </div><!-- /input-group -->
+
+          <span class="arrow caret"></span>
+        </div><!-- search-bar -->
+
+        <div class="profile col-sm-4">
+          <ul class="profile-icons list-inline pull-right">
+            <li>{{curuser}}</li>
+            <li>
+              <a ng-click="logOut()" style="cursor: pointer">Log out</a>
+            </li>
+            <li class="bell">
+              <span class="glyphicon glyphicon-bell"></span>
+            </li>
+            <li>
+              <img src="http://s1.iconbird.com/ico/2013/7/393/w128h1281373800306despicableme2Minionicon5.png" class="img-circle" width="25">
+            </li>
+          </ul>
+        </div><!-- profile -->
+      </header>
+
+      <div class="control-bar row">
+        <div class="menu col-sm-2">
+          Gmail
+          <span class="caret"></span>
+        </div><!-- menu -->
+
+        <div class="controls col-sm-10">
+          <ul class="control-list list-inline">
+            <li>
+              <button class="btn btn-control">
+                <input type="checkbox" class="mail-select">
+                <span class="caret"></span>
+              </button>
+            </li>
+            <li>
+              <a ui-sref="home.addressbook()">Address book</a>
+            </li>
+          </ul>
+        </div><!-- controls -->
+      </div><!-- control-bar -->
+
+      <div class="mail row">
+        <div class="sidebar col-sm-2">
+          <button class="compose btn btn-danger" ui-sref="home.newmail()">
+            Compose
+          </button>
+
+          <ul class="inbox-sections list-unstyled">
+              <box-list></box-list>
+          </ul>
+        </div><!-- sidebar -->
+
+        <div class="inbox col-sm-10">
+          <ul class="list-unstyled">
+              <ui-view></ui-view>
+            
+          </ul>
+        </div><!-- inbox -->
+      </div><!-- mail -->
+    </div>

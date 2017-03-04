@@ -1,0 +1,30 @@
+<div class="shadowbox"></div >
+<div class="in-shadowbox">
+
+  <li class="email-item row unread">
+     <div class="people col-sm-3">
+                <img src="http://s1.iconbird.com/ico/2013/7/393/w128h1281373800306despicableme2Minionicon5.png" width="25" class="img-circle">
+                {{email.userobj.name}}
+     </div><!-- people -->
+
+     <div class="message col-sm-7">
+                To: {{email.to}}
+     </div><!-- message -->
+
+     <div class="date col-sm-2">
+         <a ui-sref="home.box({ boxId: email.box })">X</a>
+     </div><!-- date -->
+  </li>
+  <li class="email-item row unread">
+    <div class=" col-sm-3">
+        <span class="people-names">{{email.subject}}</span>
+    </div>
+
+  </li>
+  <li class="email-item row padded">
+    {{email.body}}
+  
+  </li>
+</div>
+
+          

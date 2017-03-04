@@ -1,0 +1,37 @@
+<div class="shadowbox"></div >
+<div class="in-shadowbox">
+   
+<form name="userForm" novalidate>   
+  <li class="email-item row unread">
+     <div class="message col-sm-7">
+        <!-- NAME -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" ng-model="address.name" required>
+            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name is required.</p>
+        </div>
+     </div>
+
+     <div class="date col-sm-2">
+         <date class="pull-right"><a ui-sref="home.addressbook">X</a></date>
+     </div>
+  </li>
+  <li class="email-item row unread">
+    <div class=" col-sm-3">
+        <!-- EMAIL -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" ng-model="address.email"  required>
+            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+        </div>
+    </div>
+
+  </li>
+  <li class="email-item row padded">  
+   <button class="compose btn btn-danger" ng-disabled="userForm.$invalid" ng-click="saveAddress(address)">Save</button>
+  </li>
+</form>
+</div>
+
+
+          

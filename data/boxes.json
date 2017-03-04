@@ -1,0 +1,4 @@
+[{"id":1, "name":"Inbox"},
+{"id":2, "name":"Sent Mail"},
+{"id":3, "name":"draft"},
+{"id":4, "name":"Spam"}]
