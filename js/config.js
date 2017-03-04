@@ -17,10 +17,10 @@ app.config(($stateProvider, $urlRouterProvider) => {
 
   $stateProvider.state({
     name: 'common.login',
-    url: '/login',
-    template: '<login></login>',
-    controller: function($state, $scope) {
-     
+    url: '/login?:isfail',
+    template: '<login isfail="isfail"></login>',
+    controller: function($state, $scope, $stateParams) {
+       $scope.isfail = $stateParams.isfail;
  	  }
   });
 

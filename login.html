@@ -11,7 +11,7 @@
             <p ng-show="userForm.password.$invalid && !userForm.password.$pristine" class="help-block">Password is required.</p>
         </div>
    <button class="compose btn btn-danger" ng-disabled="userForm.$invalid" ng-click="$ctrl.loginMe()">Save</button>
-   <p ng-if="$ctrl.logged == false" class="help-block">Login or password is incorrect.</p>
+   <p ng-if="$ctrl.isfail" class="help-block">Login or password is incorrect.</p> 
 </form>
 </div>
 

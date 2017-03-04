@@ -71,17 +71,18 @@
 
       this.login= '';
       this.password = '';
-      this.logged;
       this.loginMe = () => { 
-          this.logged = authService.login(this.login, this.password).then(function(resp){
+          var event = authService.login(this.login, this.password).then(function(resp){
             if(!!resp){
                $state.go('home.box',{boxId:1});
+            }else{
+              $state.go('common.login',{isfail:true});
             }
             return resp;
           });
         };
     },
     bindings: {
-
+      isfail:'<'
     }
   });
