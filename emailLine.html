@@ -2,7 +2,7 @@
               <div class="people col-sm-1">
                 <ul class="mail-icons list-inline">
                   <li>
-                    <input type="checkbox" class="mail-select">
+                    <input type="checkbox" class="mail-select check"  ng-model="$ctrl.email.isChecked">
                   </li>
                   <li>
                     <input type="button" value="Del" ng-click="$ctrl.deleteLine({eml: $ctrl.email});">

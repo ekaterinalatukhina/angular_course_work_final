@@ -43,7 +43,7 @@
           <ul class="control-list list-inline">
             <li>
               <button class="btn btn-control">
-                <input type="checkbox" class="mail-select">
+                <input type="checkbox" class="mail-select" id="checkAll" onclick="$('.mail-select').prop('checked', $(this).prop('checked'));">                
                 <span class="caret"></span>
               </button>
             </li>

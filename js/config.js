@@ -52,13 +52,14 @@ app.config(($stateProvider, $urlRouterProvider) => {
           authService.logout();
           $state.go('common.login');
         } 
+       
  	  }
   });
   
   $stateProvider.state({
     name: 'home.box',
     url: '/box/:boxId',
-    template: ` 
+    template: ` <button class="compose btn" ng-click="bulkDelete()">Bulk delete</button>
             <div ng-repeat="email in emails | filterBySearchword:$ctrl.searchWord">
                  <email-line email="email" deleteline="deleteLine(email)"></email-line>
               </div><ui-view></ui-view>
@@ -75,12 +76,13 @@ app.config(($stateProvider, $urlRouterProvider) => {
       $scope.emails = [];
       for (var i=0; i<emailList.length; i++) {
           if (emailList[i]["box"] == $stateParams.boxId) {
-            emailList[i]['userobj'] = usrs_dict[emailList[i]['from']]
+            emailList[i]['userobj'] = usrs_dict[emailList[i]['from']];
             $scope.emails.push(emailList[i]);
+            $scope.emails[$scope.emails.length - 1]['isChecked'] = false;
           }
       }  
-      $scope.deleteLine  = (eml) => {  
-           for (var i = 0; i < $scope.emails.length; i++) {
+      $scope.deleteLine  = (eml) => { 
+           for (var i = 0; i < $scope.emails.length; i++) { 
              if ($scope.emails[i]['id'] == eml['id']) {
                $scope.emails.splice(i, 1);
                break;
@@ -94,6 +96,24 @@ app.config(($stateProvider, $urlRouterProvider) => {
            }
            // also update on server
          };
+       $scope.bulkDelete = function(){ 
+         var to_delete=[]; 
+          for (var i = 0; i < $scope.emails.length; i++) { 
+             if (!!$scope.emails[i]['isChecked']) {
+               to_delete.push($scope.emails[i]['id']); 
+               $scope.emails.splice(i, 1);
+               i = i-1;
+             }
+           } 
+           console.log($scope.emails);
+           for (var i = 0; i < emailList.length; i++) {
+             if (to_delete.indexOf(emailList[i]['id']) != -1) {
+               emailList.splice(i, 1);
+               break;
+             }
+           }
+           // also update on server
+        }
          
  	}
   });

@@ -40,37 +40,3 @@ app.service('authService', function($window, $http){
   };
 
 });
-/*
-app.service('authService', function ($q, $timeout, $localStorage, toastr) {
-
-    this.login = loginFormData => {
-      let deferred = $q.defer()
-
-      $timeout(() => {
-        if (loginFormData.login === userCredentials.login &&
-          loginFormData.password === userCredentials.password) {
-          $localStorage.auth = auth = loginFormData
-          toastr.success(`Вы успешно авторизовались`)
-          deferred.resolve(200)
-        } else {
-          toastr.error(`Логин или пароль не подходят`)
-          deferred.reject(403)
-        }
-      }, 1000)
-
-      return deferred.promise
-    }
-
-    this.logout = () => {
-      try {
-        auth = null
-        delete $localStorage.auth
-        toastr.success(`Вы успешло вышли из системы`)
-
-        return true
-      } catch (e) {
-        toastr.error(`Неожиданный поворот`)
-        return false
-      }
-    }
-  }) */
