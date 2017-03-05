@@ -21,7 +21,7 @@
   
   app.component('emailLine', {
     templateUrl: 'emailLine.html',
-    controller: function($element) { },
+    controller: function() { },
     bindings: {
        email: '<email',
        deleteLine:'&deleteline'
@@ -64,8 +64,8 @@
 
   app.component('login', {
     templateUrl: 'login.html',
-    controller: function(authService, $state) {
-      if (authService.isAuthirized()){
+    controller: function(authService, $state) { 
+      if (!!authService.isAuthirized()["login"]){
         $state.go('home.box',{boxId:1});
       }
 
@@ -76,7 +76,7 @@
             if(!!resp){
                $state.go('home.box',{boxId:1});
             }else{
-              $state.go('common.login',{isfail:true});
+               $state.go('common.login',{isfail:true});
             }
             return resp;
           });
